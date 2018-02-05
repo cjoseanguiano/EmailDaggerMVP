@@ -2,6 +2,7 @@ package anguiano.carlos.emaildaggermvp.networking;
 
 import anguiano.carlos.emaildaggermvp.model.Response;
 import retrofit2.http.GET;
+import rx.Observable;
 
 /**
  * Created by Carlos Anguiano on 04/02/18.
@@ -10,5 +11,5 @@ import retrofit2.http.GET;
 
 public interface NetworkService {
     @GET("posts/1/comments")
-    rx.Observable<Response> getListModel();
+    Observable<Response> getListModel();
 }
