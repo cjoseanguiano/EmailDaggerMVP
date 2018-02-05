@@ -9,6 +9,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
     }
     buildTypes {
         release {
@@ -30,4 +35,24 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
 
+    //retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+
+    //rxandroid
+    implementation 'io.reactivex:rxandroid:1.2.1'
+
+    //rxjava
+    implementation 'io.reactivex:rxjava:1.2.3'
+
+    //dagger
+    implementation 'com.google.dagger:dagger:2.14'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.14'
+
+    //pendientes
+    implementation 'com.google.code.gson:gson:2.8.2'
+    provided 'javax.annotation:jsr250-api:1.0'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 }
