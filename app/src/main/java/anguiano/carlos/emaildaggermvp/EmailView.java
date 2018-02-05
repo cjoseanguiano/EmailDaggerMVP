@@ -1,6 +1,6 @@
 package anguiano.carlos.emaildaggermvp;
 
-import anguiano.carlos.emaildaggermvp.model.Response;
+import anguiano.carlos.emaildaggermvp.model.CityListResponse;
 
 /**
  * Created by Carlos Anguiano on 04/02/18.
@@ -12,7 +12,7 @@ public interface EmailView {
 
     void removeWait();
 
-    void getListSuccess(Response response);
+    void getListSuccess(CityListResponse response);
 
     void onFailure(String appErrorMessage);
 }

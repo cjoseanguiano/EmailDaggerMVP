@@ -3,6 +3,7 @@ package anguiano.carlos.emaildaggermvp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import anguiano.carlos.emaildaggermvp.di.DaggerDepss;
 import anguiano.carlos.emaildaggermvp.di.Depss;
 import anguiano.carlos.emaildaggermvp.networking.NetworkModule;
 
@@ -17,7 +18,8 @@ class BaseApp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        deps = DaggerDepss.builder().networkModule(new NetworkModule());
+        deps = DaggerDepss.builder().networkModule(new NetworkModule()).build();
+
     }
 
     public Depss getDeps() {

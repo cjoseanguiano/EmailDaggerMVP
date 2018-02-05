@@ -1,6 +1,6 @@
 package anguiano.carlos.emaildaggermvp.networking;
 
-import anguiano.carlos.emaildaggermvp.model.Response;
+import anguiano.carlos.emaildaggermvp.model.CityListResponse;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
@@ -24,13 +24,13 @@ public class ServiceNetwork {
         return networkService.getListModel()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends Response>>() {
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends CityListResponse>>() {
                     @Override
-                    public Observable<? extends Response> call(Throwable throwable) {
+                    public Observable<? extends CityListResponse> call(Throwable throwable) {
                         return Observable.error(throwable);
                     }
                 })
-                .subscribe(new Subscriber<Response>() {
+                .subscribe(new Subscriber<CityListResponse>() {
                     @Override
                     public void onCompleted() {
 
@@ -42,14 +42,14 @@ public class ServiceNetwork {
                     }
 
                     @Override
-                    public void onNext(Response response) {
+                    public void onNext(CityListResponse response) {
                         getListCallBack.onSuccess(response);
                     }
                 });
     }
 
     public interface GetListCallBack {
-        void onSuccess(Response response);
+        void onSuccess(CityListResponse response);
 
         void onError(NetworkError networkError);
     }

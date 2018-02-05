@@ -5,10 +5,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
-import anguiano.carlos.emaildaggermvp.model.Response;
+import anguiano.carlos.emaildaggermvp.model.CityListResponse;
 import anguiano.carlos.emaildaggermvp.networking.ServiceNetwork;
 
 
@@ -47,7 +48,9 @@ public class EmailActivity extends BaseApp implements EmailView {
     }
 
     @Override
-    public void getListSuccess(Response response) {
+    public void getListSuccess(CityListResponse response) {
+        String email = response.getMessage();
+        Toast.makeText(this, "" + email, Toast.LENGTH_SHORT).show();
         /*EmailAdapter adapter = new EmailAdapter(getApplicationContext(), response.getEmail(), new EmailAdapter.OnItemClickListener() {
             @Override
             public void onClickItem(ItemsTest itemsTest) {

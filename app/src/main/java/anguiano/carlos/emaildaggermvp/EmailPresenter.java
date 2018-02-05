@@ -1,6 +1,6 @@
 package anguiano.carlos.emaildaggermvp;
 
-import anguiano.carlos.emaildaggermvp.model.Response;
+import anguiano.carlos.emaildaggermvp.model.CityListResponse;
 import anguiano.carlos.emaildaggermvp.networking.NetworkError;
 import anguiano.carlos.emaildaggermvp.networking.ServiceNetwork;
 import rx.Subscription;
@@ -19,6 +19,7 @@ public class EmailPresenter {
     EmailPresenter(EmailView emailView, ServiceNetwork serviceNetwork) {
         this.emailView = emailView;
         this.serviceNetwork = serviceNetwork;
+        this.subscriptions = new CompositeSubscription();
     }
 
     void getListModel() {
@@ -26,7 +27,7 @@ public class EmailPresenter {
 
         Subscription subscription = serviceNetwork.getListModel(new ServiceNetwork.GetListCallBack() {
             @Override
-            public void onSuccess(Response response) {
+            public void onSuccess(CityListResponse response) {
                 emailView.removeWait();
                 emailView.getListSuccess(response);
             }

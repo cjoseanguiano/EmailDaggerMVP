@@ -1,6 +1,6 @@
 package anguiano.carlos.emaildaggermvp.networking;
 
-import anguiano.carlos.emaildaggermvp.model.Response;
+import anguiano.carlos.emaildaggermvp.model.CityListResponse;
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -11,5 +11,5 @@ import rx.Observable;
 
 public interface NetworkService {
     @GET("posts/1/comments")
-    Observable<Response> getListModel();
+    Observable<CityListResponse> getListModel();
 }
