@@ -1,8 +1,5 @@
 package anguiano.carlos.emaildaggermvp.networking;
 
-import android.app.Service;
-import android.os.Build;
-
 import java.io.IOException;
 
 import javax.inject.Singleton;

@@ -2,9 +2,9 @@ package anguiano.carlos.emaildaggermvp.networking;
 
 import anguiano.carlos.emaildaggermvp.model.Response;
 import rx.Observable;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -23,6 +23,7 @@ public class ServiceNetwork {
     public Subscription getListModel(final GetListCallBack getListCallBack) {
         return networkService.getListModel()
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends Response>>() {
                     @Override
                     public Observable<? extends Response> call(Throwable throwable) {

@@ -12,7 +12,7 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = NetworkModule.class)
-public interface Deps {
+@Component(modules = {NetworkModule.class})
+public interface Depss {
     void inject(EmailActivity emailActivity);
 }

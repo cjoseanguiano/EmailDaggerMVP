@@ -1,7 +1,5 @@
 package anguiano.carlos.emaildaggermvp.networking;
 
-import java.util.Observable;
-
 import anguiano.carlos.emaildaggermvp.model.Response;
 import retrofit2.http.GET;
 
